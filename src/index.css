@@ -2,7 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Дополнительные стили если нужны */
-html {
-  scroll-behavior: smooth;
+/* Фиксированный градиентный фон */
+body {
+  @apply min-h-screen;
+  background: linear-gradient(to bottom, #F9FAFB 0%, #A8CBEE 100%);
+  background-attachment: fixed;
+  background-size: cover;
 }

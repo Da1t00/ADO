@@ -7,13 +7,15 @@ import ServicePage from './components/pages/ServicePage';
 
 const App = () => {
   return (
-    <div 
-      className="min-h-screen"
-    >
+    <div className="relative min-h-screen">
+      {/* Ваш контент будет поверх фона */}
       <Header />
-      <HomePage />
-      <AboutUsPage />
-      <ServicePage />
+      <main className="relative z-10"> {/* z-10 чтобы контент был поверх фона */}
+        {/* Ваши страницы и роуты */}
+        <HomePage />
+        <AboutUsPage />
+        <ServicePage />
+      </main>
     </div>
   );
 };
