@@ -3,7 +3,7 @@ import logo from '../../../assets/logo.svg';
 
 const AboutUs = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-blue-100">
+    <div className="min-h-screen">
       <div className="w-full max-w-6xl mx-auto px-4 py-12">
         {/* Top Section */}
         <div className="flex flex-col md:flex-row shadow-md overflow-hidden rounded-xl mb-10">

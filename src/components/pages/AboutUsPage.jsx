@@ -6,7 +6,9 @@ import AboutUsDiff from'./AboutUsSections/AboutUsDif';
 
 
 const AboutUsPage = () => (
-    <div>
+    <div style={{
+        background: 'linear-gradient(to bottom, #F9FAFB, #A8CBEE)'
+      }}> 
         <AboutUs />
         <ValueSection />
         <AboutUsDiff />

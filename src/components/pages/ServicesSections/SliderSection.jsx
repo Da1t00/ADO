@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
+import 'swiper/css/autoplay';
 
 // Импортируем изображения
 import webAppsImg from '../../../assets/slider/web-apps.png';
@@ -14,7 +14,7 @@ import consultingImg from '../../../assets/slider/consulting.png';
 import webSitesImg from '../../../assets/slider/web-sites.png';
 
 const SliderSection = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [, setActiveIndex] = useState(0);
 
   const slides = [
     {
@@ -27,7 +27,6 @@ const SliderSection = () => {
       subtitle: "Платформы, CRM, информационные системы",
       image: webAppsImg
     },
-    
     {
       title: "Мобильные приложения",
       subtitle: "Разработка под iOS и Android",
@@ -42,7 +41,8 @@ const SliderSection = () => {
       title: "IT-аутсорсинг",
       subtitle: "Команды под проекты бизнеса и госструктур",
       image: outsourcingImg
-    },{
+    },
+    {
       title: "Консалтинг",
       subtitle: "Технический аудит и помощь в ТЗ",
       image: consultingImg
@@ -62,41 +62,49 @@ const SliderSection = () => {
 
       <div className="relative">
         <Swiper
-          spaceBetween={30}
-          slidesPerView={1}
-          breakpoints={{
-            640: {
-              slidesPerView: 2,
-            },
-            1024: {
-              slidesPerView: 3,
-            },
-          }}
-          onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
-          className="pb-12"
-        >
+            spaceBetween={30}
+            slidesPerView={1}
+            speed={3000} // Плавная анимация перехода (в миллисекундах)
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+              waitForTransition: true, // Ждать завершения перехода перед следующим автопрокрутом
+            }}
+            modules={[Autoplay]}
+            breakpoints={{
+              640: {
+                slidesPerView: 2,
+              },
+              1024: {
+                slidesPerView: 3,
+              },
+            }}
+            onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+            className="pb-12"
+          >
           {slides.map((slide, index) => (
             <SwiperSlide key={index}>
-              <div className={`h-full p-4 transition-all duration-300 ${activeIndex === index ? 'scale-105' : 'scale-95'}`}>
-                <div className="bg-white rounded-xl shadow-lg overflow-hidden h-full flex flex-col">
+              <div className="h-full p-4 group">
+                <div className={`bg-white rounded-xl shadow-lg overflow-hidden h-full flex flex-col transition-transform duration-300 group-hover:scale-105 hover:z-10`} style={{ minHeight: '400px' }}>
                   <div className="p-6 flex-grow">
                     <h3 className="text-2xl font-semibold text-gray-800 mb-2">{slide.title}</h3>
                     <p className="text-gray-600">{slide.subtitle}</p>
                   </div>
-                  <div className="h-54 overflow-hidden">
+                  <div className="h-48 w-full overflow-hidden">
                     <img 
                       src={slide.image} 
                       alt={slide.title}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                       loading="lazy"
                     />
                   </div>
-                  
                 </div>
               </div>
             </SwiperSlide>
           ))}
         </Swiper>
+
+        {/* Индикатор текущего слайда */}
       </div>
     </section>
   );

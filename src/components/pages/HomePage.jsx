@@ -3,7 +3,9 @@ import { MessageCircleMore } from 'lucide-react';
 import logo from '../../assets/logo_dark.svg'; // Adjust the path as necessary
 const HomePage = () => {
   return (
-    <main className="min-h-screen bg-transparent">
+    <main className="min-h-screen bg-transparent" style={{
+        background: 'linear-gradient(to bottom, #F9FAFB, #A8CBEE)'
+      }}>
       <div className="container mx-auto px-4 pt-28 pb-12 md:pt-40 md:pb-20">
 
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">

@@ -15,7 +15,7 @@ const ValueSection = () => {
   ];
 
   return (
-    <div className="bg-gradient-to-b from-white to-blue-100 py-16 px-4">
+    <div className="py-16 px-4">
       <div className="max-w-6xl mx-auto text-center">
         <h2 className="text-3xl sm:text-4xl font-semibold text-gray-800 mb-12">Наши ценности</h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 justify-items-center">

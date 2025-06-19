@@ -9,9 +9,6 @@ const App = () => {
   return (
     <div 
       className="min-h-screen"
-      style={{
-        background: 'linear-gradient(to bottom, #F9FAFB, #A8CBEE)'
-      }}
     >
       <Header />
       <HomePage />
